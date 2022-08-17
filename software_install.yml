@@ -1,0 +1,14 @@
+---
+- name: Installing Firefox MSI 
+  hosts: all 
+ 
+  tasks:
+    - name: Download the Firefox installer
+      win_get_url:
+        url: https://download.mozilla.org/?product=firefox-msi-latest-ssl&os=win64&lang=en-GB
+        dest: C:\temp\Firefox Setup 103.0.2.msi
+
+    - name: Install MSI
+      win_package: 
+        path: C:\temp\Firefox Setup 103.0.2.msi
+        state: present
