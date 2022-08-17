@@ -1,0 +1,14 @@
+---
+- name: Removing Firefox and MSI 
+  hosts: all 
+ 
+  tasks:
+    - name: Remove MSI
+      win_package: 
+        path: C:\temp\Firefox Setup 103.0.2.msi
+        state: absent
+        
+    - name: Remove a file, if present
+      ansible.windows.win_file:
+        path: C:\temp\Firefox Setup 103.0.2.msi
+        state: absent
